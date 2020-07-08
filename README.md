@@ -1,5 +1,7 @@
 # OnStep_Travel_EQ
-3D Printed Motorised Traveling Equatorial mount compatible with OnStep eletronics Project
+### 3D Printed Motorised Traveling Equatorial mount compatible with OnStep eletronics Project
+## Status : Beta / Work In Progress
+
 
 ![Travel EQ Image](https://github.com/ulysse31/OnStep_Travel_EQ/raw/master/gallery/main.jpg)
 
