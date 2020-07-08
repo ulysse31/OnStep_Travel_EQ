@@ -11,7 +11,7 @@ My travel EQ mount is composed of:
 - 2x 100:1 gearbox (I used a OKD42 100:1 precision gearbox)
 - 2x 80T GT2 pulley
 - 2x 20T GT2 pulley
-- 2x 184T GT2 belt
+- 2x 92T (184mm) GT2 belt
 - 2x KFL08 bearings
 - 2x M8 steel tube (for now)
 - M5 threaded rods (cut to length)
