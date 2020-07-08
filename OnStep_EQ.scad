@@ -531,6 +531,14 @@ module printable_EQBlockDECbottom()
   translate([0,0, 18]) rotate([180, 0, 0]) EQBlockDECbottom();
 }
 
+module simulation()
+{
+   translate([0,0,eqblockDEC1_h]) rotate([180,0,0]) EQBlockDECtop();
+   rotate([180,0,0]) EQBlockDECbottom();
+   translate([0,0,eqblockDEC1_h]) rotate([180,0,0]) EQBlockDEC1();
+}
+
+simulation();
 
 //holing_tests();
 
@@ -541,7 +549,7 @@ module printable_EQBlockDECbottom()
 //EQBlockDEC_sim();
 //translate([0,0,87.6]) EQBlockDECtop();
 
-printable_EQBlockDECtop();
+//printable_EQBlockDECtop();
 //printable_EQBlockDECbottom();
 //
 // EQBlockDECbottom();
