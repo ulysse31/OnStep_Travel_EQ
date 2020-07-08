@@ -1,50 +1,104 @@
+// 3D printed *Generic* Travel EQ mount for Onstep integration / usage
+// Copyright (C) 2020  Victor do Vale, ulysse31@gmail.com a.k.a Nix
 //
-// 3D printed *Generic* EQ mount
-// for OnStep Integration
+//This program is free software; you can redistribute it and/or
+//modify it under the terms of the GNU General Public License
+//as published by the Free Software Foundation; either version 2
+//of the License, or (at your option) any later version.
+//
+//This program is distributed in the hope that it will be useful,
+//but WITHOUT ANY WARRANTY; without even the implied warranty of
+//MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//GNU General Public License for more details.
+//
+//You should have received a copy of the GNU General Public License
+//along with this program; if not, write to the Free Software
+//Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+//
+// Author :
+// Victor do Vale (Ulysse31, a.k.a Nix) (ulysse31@gmail.com)
+// 
 //
 
+
+// rendering variable : do not touch
 $fn=300;
 
+
+
+//
+// BEGIN OF ADAPTATION VARIABLES
+// HERE YOU CAN ADAPT TO YOUR PARTS THE 3D MODELS
+// BY CHANGING THE SIZE AND VALUES
+// I ADDED SOME COMMENTS TO HELP UNDERSTANDING EACH ONE
+// ONCE EDITED GO TO END OF FILE TO UNCOMMENT THE DESIRED PART YOU WISH TO RENDER
+// FOR STL GENERATION AND 3D PRINTING (printable_* functions)
+//
+
+// w_th : wall thickness, default 12mm
 w_th=12;
+
+// print_gap : gap for 3D printer overfill compensation => this depends on your printer, for me, its 2 mm (1 on each side)
 print_gap=2;
+
+//nema17_size : nema 17 "standard" size => if you wish to use nema23 ... change this ? (not tested ^^')
 nema17_size=42;
 
+// nema_hole_dist : distance of nema holes from center axis, 21.920310216782973 for nema17
 nema_hole_dist=21.920310216782973;
+// nema_hole_dia : diameter of nema screw holes
 nema_hole_dia=3;
 
+// gear_hole_dist : distance of the 4 gearbox top holes from the gearbox center axis, that screws to the top part 
 gear_hole_dist=35/2;
+// diameter of holes for nema fixation (aesthetical / 3d rendering visualization value)
 gear_hole_dia=5;
 
-// 184mm GT2
+// axis_pulley_dist : distance between the main axis, and the motor axis, center to center, this depends of your pulley sizes and belt type
+// IT ALSO DEPENDS ON THE MANUFACTURER : some "adaptations" must be done depending of your hardware, I left here different value to give you a scenario 
+// 184mm GT2 => here, this value was the "calculated one"
 //axis_pulley_dist=36.94;
-// corrected value mesured apon reception of belts & pulleys
+// corrected value mesured apon reception of belts & pulleys (bad idea, caliper not enough precise or human error ... arg...)
 //axis_pulley_dist=36.82;
-// re-mesured (second attempt)
+// re-mesured after first print (had to reprint)
+// that value was the correct one FOR ME (and my parts)
 axis_pulley_dist=37.32;
 
-// min : 182mm GT2
-//axis_pulley_dist=35.75;
-
-// 186mm GT2
-//axis_pulley_dist=38.1;
+// axis_dia: axis diameter (8mm) but added a print gap of 1.5 (and code adds even more afterwords ... oh well ... at least it works ... :p )
 axis_dia=9.5;
 
+// MY KFL08 dimensions : depends on manufacturer => I strongly advise to wait reception and mesure BEFORE
+// (some sellers gives bad/incorrect datasheets : I tested it myself :/ ...)
+// height
 KFL08_h=12;
+// length
 KFL08_l=48;
+// width
 KFL08_w=27;
 
+// nema length/height used, mine : 47mm (46.5 from caliper).
 nema_h=46.5;
+// this is the height of my gearbox (OKD42 100:1 gearbox from ebay)
 OKD42_h=53;
 
-insert_5mm_od=6.3;
-insert_4mm_od=5.2;
-
-eqblockDEC1_h=nema_h+OKD42_h-KFL08_h;
-
+// RJ45 connector dimension used
 rj45_x=15;
 rj45_y=13;
 rj45_z=18;
 
+//
+// END OF ADAPTATION PART
+// DO NOT EDIT CODE BELOW, UNLESS YOU KNOW WHAT YOU ARE DOING
+// THE ONLY PART INTERRESTING FOR "NON CODERS/MODELERS" IS AT THE END OF FILE
+//
+
+
+// Calculated size for middle block ...
+eqblockDEC1_h=nema_h+OKD42_h-KFL08_h;
+
+//
+// GENERIC 3D functions
+// 
 module rotate_at(rotation, coord) {
   translate(coord)
     rotate(rotation)
@@ -52,6 +106,8 @@ module rotate_at(rotation, coord) {
     children();
 }
 
+
+// this function modelize my gearbox (used for carving the parts).
 module planetary_gearbox_OKD42(len, with_holes=0) {
   plate_h=5;
   cyl_r=21;
@@ -97,11 +153,13 @@ module planetary_gearbox_OKD42(len, with_holes=0) {
     }
 }
 
+// generic function that is later called to carve the parts (change content if you code your own gearbox module)
 module planetary_gearbox(len, with_holes=0)
 {
   planetary_gearbox_OKD42(len, with_holes);
 }
 
+// Imports a 3d model of a nema17 (for carving/3d rendering)
 module nema17_geared(gearlen,with_holes=0) {
   import("./Nema17_48h.stl");
     if (with_holes == 0)
@@ -293,8 +351,6 @@ module EQBlockDEC1()
 		  rotate([0, 0, a]) translate([-4.75, 42,-0.01]) cube([9.5,9.5,eqblockDEC1_h+w_th+20]);
 	      for (a=[45, 315])
 		  rotate([0, 0, a]) translate([-4.75, 42,-0.01]) cube([9.5,9.5,eqblockDEC1_h+w_th+20]);
-// 	      translate([0, -nema17_size/3, (nema_h+OKD42_h)/2+17]) rotate([90,0,0]) cylinder(r=insert_4mm_od/2, h=w_th*2);
-// 	      translate([0, -nema17_size/3, (nema_h+OKD42_h)/2-17]) rotate([90,0,0]) cylinder(r=insert_4mm_od/2, h=w_th*2);
 	    }
 	  }
 
@@ -531,15 +587,14 @@ module printable_EQBlockDECbottom()
   translate([0,0, 18]) rotate([180, 0, 0]) EQBlockDECbottom();
 }
 
-module simulation()
+module simulation_block()
 {
    translate([0,0,eqblockDEC1_h]) rotate([180,0,0]) EQBlockDECtop();
    rotate([180,0,0]) EQBlockDECbottom();
    translate([0,0,eqblockDEC1_h]) rotate([180,0,0]) EQBlockDEC1();
 }
 
-simulation();
-
+// THIS IS THE TESTING PART, DON'T TOUCH 
 //holing_tests();
 
 //bottom_test();
@@ -568,3 +623,23 @@ simulation();
 //nema17_geared(OKD42_h);
 //planetary_gearbox(OKD42_h);
 //cube([10,10,10]);
+// END TESTING PART
+
+// Enable this to simulate the block
+//simulation_block();
+
+
+
+
+//
+// END OF FILE : WELCOME TO THE END OF THE WORLD ...
+//
+// Generating 3d models for printing, uncomment one and generate STL
+// Top block
+//printable_EQBlockDECtop();
+// Middle block
+//printable_EQBlockDEC1();
+// Bottom block
+printable_EQBlockDECbottom();
+
+
