@@ -1,7 +1,7 @@
 # OnStep_Travel_EQ
 3D Printed Motorised Traveling Equatorial mount compatible with OnStep eletronics Project
 
-![Travel EQ Image](https://github.com/ulysse31/OnStep_Travel_EQ/gallery/main.jpg)
+![Travel EQ Image](https://github.com/ulysse31/OnStep_Travel_EQ/raw/master/gallery/main.jpg)
 
 It is composed of tree 3d printed parts : top, middle and bottom block.
 
