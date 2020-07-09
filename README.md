@@ -3,6 +3,7 @@
 ### Status : Beta / Work In Progress
 
 3D Printed Motorised Traveling Equatorial mount compatible with OnStep eletronics Project.
+
 The goal is to build a basic, simple, easy to transport EQ mount.
 
 ![Travel EQ Image](https://github.com/ulysse31/OnStep_Travel_EQ/raw/master/gallery/main.jpg)
@@ -29,11 +30,14 @@ My travel EQ mount is composed of:
 - 2x Arca Swiss Quick & Release plates.
 
 You can use other parts, but you'll have to modify the SCAD and regenerate the STLs.
+
 On the elements marked "for now", this is because it is a beta version, I want to improve it and change those elements in the future.
 
 # What you need to know :
 If you want to customize it, please not that this design does NOT have a belt tensioner.
-This means the parts are made to "fit" the exact size needed to tension the belt.
+
+This means the three 3D printed parts are made (customized in the SCAD file) to "fit" the exact size needed to tension the belt.
+
 Why didn't I put a belt tensioning system ? I wanted to keep it simple, and didn't find a "good and simple" way to add it to the design.
 
 Please keep in mind that this is a "Work in Progress" project, didn't even made "real life tests" for now.
