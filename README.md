@@ -11,6 +11,7 @@ The goal is to build a basic, simple, easy to transport EQ mount.
 
 # What you need (Part list):
 My travel EQ mount is composed of:
+- The 3 3D printed parts of this project (^^')
 - 2x NEMA17 motors (mine 400 steps, 47mm long nema17).
 - 2x 100:1 gearbox (I used a OKD42 100:1 precision gearbox).
 - 2x 80T GT2 pulley.
