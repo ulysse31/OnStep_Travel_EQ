@@ -35,7 +35,7 @@ You can use other parts, but you'll have to modify the SCAD and regenerate the S
 On the elements marked "for now", this is because it is a beta version, I want to improve it and change those elements in the future.
 
 # What you need to know :
-If you want to customize it, please not that this design does NOT have a belt tensioner.
+If you want to customize it, please note that this design does NOT have a belt tensioner.
 
 This means the three 3D printed parts are made (customized in the SCAD file) to "fit" the exact size needed to tension the belt.
 
