@@ -39,11 +39,10 @@ On the elements marked "for now", this is because it is a beta version, I want t
 With minimal 32 microsteps motor drivers, the 100:1 gearbox with 4:1 pulley/belt reduction, it should give arround 0.253 sec arc for tracking resolution.
 
 # What you need to know :
-If you want to customize it, please note that this design does NOT have a belt tensioner.
-
-This means the three 3D printed parts are made (customized in the SCAD file) to "fit" the exact size needed to tension the belt.
-
-Why didn't I put a belt tensioning system ? I wanted to keep it simple, and didn't find a "good and simple" way to add it to the design.
+- STL are made with some print gap, that may depend on your printer, you can modify it editing the SCAD and changing the "print_gap" value. Once modified, re-generate the three STL files for each blocks with OpenSCAD.
+- If you want to customize it, please note that this design does NOT have a belt tensioner.
+- This means the three 3D printed parts are made (customized in the SCAD file) to "fit" the exact size needed to tension the belt. Why didn't I put a belt tensioning system ? I wanted to keep it simple, and didn't find a "good and simple" way to add it to the design.
+- Once printed, you'll have to sand a bit the interior to get the gearbox+motor inside the middle block. DO NOT FORCE TOO MUCH or you'll get stuck ^^'
 
 Please keep in mind that this is a "Work in Progress" project, didn't even made "real life tests" for now.
 
