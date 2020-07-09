@@ -28,6 +28,7 @@ My travel EQ mount is composed of:
 - 2x piece of copper PCB for etching the little boards for the RJ45 ports connectors.
 - 4x M5 DIN912 screws for "easy" lock / unlock of the main axis.
 - 2x Arca Swiss Quick & Release plates.
+- A good photo tripod that can handle the load.
 
 You can use other parts, but you'll have to modify the SCAD and regenerate the STLs.
 
