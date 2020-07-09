@@ -39,5 +39,5 @@ Why didn't I put a belt tensioning system ? I wanted to keep it simple, and didn
 Please keep in mind that this is a "Work in Progress" project, didn't even made "real life tests" for now.
 
 # Things I would like to do on it in the future :
-- Getting rid of the shaft couplers by using 8mm tube with 5mm or 6mm inside threading
+- Get rid of the shaft couplers by using 8mm tube with 5mm or 6mm inside threading
 - Modelize a holder for a polaris scope / aligner, that could integrate this design and be easy to use.
