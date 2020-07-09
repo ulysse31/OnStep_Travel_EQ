@@ -17,7 +17,7 @@ My travel EQ mount is composed of:
 - 2x 80T GT2 pulley.
 - 2x 20T GT2 pulley.
 - 2x 92T (184mm) GT2 belt.
-- 2x KFL08 bearings.
+- 4x KFL08 bearings.
 - 2x M8 steel tube (for now).
 - M5 threaded rods (cut to length).
 - M4 threaded rods (cut to length).
